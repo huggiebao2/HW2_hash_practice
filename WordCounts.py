@@ -7,10 +7,9 @@ def Get_File_Path():
     filepath = os.path.join(dir, 'hw2_data.txt')
     return filepath
 
-def main():
+def Main():
     # Create A empty hash table
     word_counts = {}
-
     with open(Get_File_Path(), 'r') as f:
         for line in f:
             # process every line in file (strip words)
@@ -28,4 +27,4 @@ def main():
     print('Word Frequency: ', word_counts)
 
 if __name__ == "__main__":
-    main()
+    Main()
