@@ -6,7 +6,7 @@
 1. 總共有多少個不重複的英文字
 2. 每一個英文字出現之次數總和
 
-並在使用到 hash 的資料結構。
+並在過程中使用到 hash 的資料結構。
 
 ## 操作
 1. 將 `hw2_data.txt` 與主程式 `WordCounts.py` 置於相同目錄下。
@@ -27,11 +27,11 @@
 
 ### `Get_File_Path()` - 取得檔案目錄
 
-1. 引入 `os.path` 模組，處理檔案路徑用。
+1. 引入 `os.path` module，處理檔案路徑用。
 	```python
 	import os.path
 	```
-2. 使用 `os.path.abspath` 取得主程式絕對路徑，取出當下目錄，再合併 `hw2_data.txt` 得到其絕對路徑。
+2. 使用 `os.path.abspath` 取得 `WordCounts.py` 絕對路徑，取出當下目錄，再合併 `hw2_data.txt` 得到其絕對路徑。
 	```python
 	def Get_File_Path():
             path = os.path.abspath(__file__)    # absolute path of main program
@@ -41,20 +41,20 @@
 	```
 
 ### `Main()` - 建立儲存單詞 (key) 及次數 (value) 的 hash table
-1. 建立空的辭典。
+1. 建立空的 Python 辭典 (dictionary)。
     ```python
     def Main():
         # Create A empty hash table
         word_counts = {}
     ```
-2. 使用 `open()` 讀取資料，並逐行取出單詞。
+2. 使用 `open()` 開啟及讀取資料，並逐行取出單詞。
     ```python
         with open(Get_File_Path(), 'r') as f:
             for line in f:
                 # process every line in file (strip words)
                 word = line.strip()
     ```
-3. 以單詞為 key，若 key 已存在，則 value 增加 1。反之，則等於 1。
+3. 以單詞為 key，若 key 已存在，則 value 增加 1。<br>反之，若 key 不存在，則等於 1。
     ```python
                 if word in word_counts:
                     # if is key in table, value += 1
